@@ -4,7 +4,7 @@ class PostsIndex extends Component {
     render() {
         return (
             <div>
-                PostsIndex
+                <h1>Posts Index</h1>
             </div>
         );
     }
