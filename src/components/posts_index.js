@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchPosts } from '../actions';
 import _ from 'lodash';
+import ReactCSSTransitionsGroup from 'react-addons-css-transition-group';
 
 class PostsIndex extends Component {
 
@@ -27,6 +28,13 @@ class PostsIndex extends Component {
     }
 
     render() {
+
+        const transitionOptions = {
+            transitionName: "fade",
+            transitionEnterTimeout: 500,
+            transitionLeaveTimeout: 500
+        }
+
         console.log(this.props.posts);
         return (
             <div>
@@ -37,7 +45,9 @@ class PostsIndex extends Component {
                 </div>
                 <h3>Posts Index</h3>
                 <ul className="list-group">
-                    {this.renderPosts()}
+                    <ReactCSSTransitionsGroup {...transitionOptions}>
+                        {this.renderPosts()}
+                    </ReactCSSTransitionsGroup>
                 </ul>
             </div>
         );
